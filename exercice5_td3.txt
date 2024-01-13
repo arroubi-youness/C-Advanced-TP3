@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+int nbr_occ(char *text,char*word){
+int cmp=0;
+char* p;
+p=text;
+for(int i=0;i<strlen(text);i++){
+    if( (p=strstr(p,word)) != NULL){
+        cmp++;
+        p+=strlen(word);
+    }
+}
+
+return cmp;
+}
+int main() {
+    char* text;
+    char* word;
+    int b=0;
+    int a;
+    text=(char*)malloc(sizeof(char)*255);
+    word=(char*)malloc(sizeof(char)*255);
+    printf("enter phrase:");
+    gets(text);
+    printf("enter word:");
+    gets(word);
+    b=nbr_occ(text,word);
+    printf("le nombre des occurrence:%d",b);
+    return 0;
+}
+
